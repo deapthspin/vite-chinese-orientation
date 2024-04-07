@@ -19,6 +19,7 @@ function Main() {
   const [chosenCharDef, setChosenCharDef] = useState('')
   const [difficulty, setDifficulty] = useState(1)
   const [completed, setCompleted] = useState(false)
+  const [started, setStarted] = useState(false)
   const[style, setStyle]= useState({
     backgroundColor: `rgb(255,255,255)`
   })
@@ -31,6 +32,8 @@ function Main() {
         .then((state) => {
           if (state === 'granted') {
             window.addEventListener('deviceorientation', handleOrientation);
+            chooseimage()
+            setStarted(true)
           } else {
             console.error('Request to access the orientation was rejected');
           }
@@ -39,6 +42,8 @@ function Main() {
     } else {
       // Handle regular non iOS 13+ devices.
       window.addEventListener('deviceorientation', handleOrientation);
+      chooseimage()
+      setStarted(true)
     }
   }
 
@@ -146,9 +151,9 @@ function Main() {
   return (
     <div className="App">
       
-      <br/>
-      <button onClick={handleClick}>enable</button>
-      <button onClick={(e) => navigate('/rooms')} >test</button>
+      <br/> 
+      {!started && <button onClick={handleClick}>enable</button>}
+      {!started && <button onClick={(e) => navigate('/rooms')} >test</button>}
       <br/>
       <br/>
       {/* <h2>alpha: {Math.round(alpha)}</h2>
@@ -166,7 +171,11 @@ function Main() {
 
       </div>}
       {/* {beta < 95 && beta > 80 && <h1>upright</h1>} */}
-      {((beta <= 35 && beta >= -35) || (beta >= 160 || beta <= -160)) && ((gamma <= -35 && gamma >= -90) || (gamma <= 90 && gamma >= 35)) && <h1 className='char'>{chosenChar}</h1>}
+      {((beta <= 35 && beta >= -35) || (beta >= 160 || beta <= -160)) && ((gamma <= -35 && gamma >= -90) || (gamma <= 90 && gamma >= 35)) && <div
+      {...handlers} style={style}
+      >
+        <h1 className='char'>{chosenChar}</h1>
+      </div>}
       {gamma <= 34 && gamma >= -45 && ((beta > 155 || beta < -155)) && <div>
         
         <h1>picking words</h1>
@@ -175,7 +184,7 @@ function Main() {
         <FormControlLabel control={<Switch onChange={changeDifficulty} />} label={difficulty ? 'adult' : 'infant'}/>
       </FormControl> */}
 
-        <Slider
+        {!started && <Slider
           defaultValue={1}
           step={1}
           min={1}
@@ -195,7 +204,7 @@ function Main() {
           onChange={changeDifficulty}
           valueLabelDisplay='auto'
           className='slider'
-        />
+        />}
 
         
         
