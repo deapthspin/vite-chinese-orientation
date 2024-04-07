@@ -1,0 +1,62 @@
+.char {
+  font-size: 100px;
+}
+
+.pinyin {
+  font-size: 65px;
+}
+
+.App {
+  text-align: center;
+}
+
+.slider {
+  width: 400px !important;
+}
+
+.swipeable {
+  height: fit-content;
+  width: fit-content;
+  padding: 5px 60px;
+  border: 1px solid black;
+  margin: auto;
+}
+.rooms {
+  display: flex;
+  flex-wrap: wrap;
+}
+.room {
+  width: 340px;
+  min-width: 340px;
+  min-height: 145px;
+  /* border: 1px solid black; */
+  text-align: center;
+  background-color: rgb(219, 219, 219);
+  border-radius: 5%;
+  margin: 5px 10px;
+  padding: 5px 1px;
+  cursor: pointer;
+}
+
+.player {
+  width: 300px;
+  min-width: 10px;
+  min-height: 135px;
+  /* border: 1px solid black; */
+  text-align: center;
+  background-color: rgb(219, 219, 219);
+  border-radius: 2.5%;
+  margin: 5px 10px;
+  padding: 5px 1px;
+}
+
+.players {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.game {
+  border: 1px solid black;
+  display: block;
+  margin: auto 0;
+}
