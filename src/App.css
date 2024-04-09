@@ -1,6 +1,10 @@
 .char {
   font-size: 100px;
 }
+ 
+body {
+  background-color: whitesmoke;
+}
 
 .pinyin {
   font-size: 65px;
