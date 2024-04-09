@@ -174,7 +174,9 @@ function Main() {
           {((beta <= 35 && beta >= -35) || (beta >= 160 || beta <= -160)) && ((gamma <= -35 && gamma >= -90) || (gamma <= 90 && gamma >= 35)) && <div
           {...handlers} style={style}
           >
-            <h1 className='char'>{chosenChar}</h1>
+            <div className='char center'>
+              <h1>{chosenChar}</h1>
+            </div>
           </div>}
           {gamma <= 34 && gamma >= -45 && ((beta > 155 || beta < -155)) && <div>
             

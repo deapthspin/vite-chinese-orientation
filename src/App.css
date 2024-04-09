@@ -1,6 +1,14 @@
 .char {
-  font-size: 100px;
+  font-size: 32px;
+  /* width: 325px !important;
+  padding-bottom: 10px;
+  text-align: center;
+  margin: auto 0;
+  height: 250px;*/
   color: black;
+  width: 400px !important;
+  padding-top: 1px;
+  padding-bottom: 0.1px;
 }
  
 body {
@@ -82,7 +90,7 @@ body {
 }
 
 .center {
-  border: 1px solid black;
+  /* border: 1px solid black; */
   width: fit-content;
 
 }
