@@ -5,10 +5,12 @@
  
 body {
   background-color: whitesmoke;
+  ;
 }
 
 .pinyin {
   font-size: 65px;
+  color: black;
 }
 
 .App {
