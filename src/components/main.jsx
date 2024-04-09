@@ -150,61 +150,64 @@ function Main() {
 
   return (
     <div className="App">
-      
       <br/> 
-      {!started && <button onClick={handleClick}>enable</button>}
-      {!started && <button onClick={(e) => navigate('/rooms')} >test</button>}
-      <br/>
-      <br/>
-      {/* <h2>alpha: {Math.round(alpha)}</h2>
-      <h2>beta: {Math.round(beta)}</h2>
-      <h2>gamma: {Math.round(gamma)}</h2> */}
-      {/* {} */}
-      {/* <div className='swipeable' {...handlers} style={style}></div> */}
-      {beta < 15 && beta >= -15 && gamma <= 34 && gamma >= -34 && <div>
-        {!completed && <div className='swipeable' {...handlers} style={style}>
-          <h1 className='pinyin'>{chosenCharAns}</h1>
+      <div className='center'>
+          {!started && <button onClick={handleClick}>enable</button>}
+          {!started && <button onClick={(e) => navigate('/rooms')} >test</button>}
           <br/>
-          <h2>{chosenCharDef}</h2>
-        </div>}
-        {completed && <h1>tilt phone up to view next word</h1>}
+          <br/>
+          {/* <h2>alpha: {Math.round(alpha)}</h2>
+          <h2>beta: {Math.round(beta)}</h2>
+          <h2>gamma: {Math.round(gamma)}</h2> */}
+          {/* {} */}
+          {/* <div className='swipeable' {...handlers} style={style}></div> */}
+          {beta < 15 && beta >= -15 && gamma <= 34 && gamma >= -34 && <div>
+            {!completed && <div className='swipeable' {...handlers} style={style}>
+              <h1 className='pinyin'>{chosenCharAns}</h1>
+              <br/>
+              <h2>{chosenCharDef}</h2>
+            </div>}
+            {completed && <h1>tilt phone up to view next word</h1>}
 
-      </div>}
-      {/* {beta < 95 && beta > 80 && <h1>upright</h1>} */}
-      {((beta <= 35 && beta >= -35) || (beta >= 160 || beta <= -160)) && ((gamma <= -35 && gamma >= -90) || (gamma <= 90 && gamma >= 35)) && <div
-      {...handlers} style={style}
-      >
-        <h1 className='char'>{chosenChar}</h1>
-      </div>}
-      {gamma <= 34 && gamma >= -45 && ((beta > 155 || beta < -155)) && <div>
-        
-        <h1>picking words</h1>
-      </div>}
-      {/* <FormControl>
-        <FormControlLabel control={<Switch onChange={changeDifficulty} />} label={difficulty ? 'adult' : 'infant'}/>
-      </FormControl> */}
+          </div>}
+          {/* {beta < 95 && beta > 80 && <h1>upright</h1>} */}
+          {((beta <= 35 && beta >= -35) || (beta >= 160 || beta <= -160)) && ((gamma <= -35 && gamma >= -90) || (gamma <= 90 && gamma >= 35)) && <div
+          {...handlers} style={style}
+          >
+            <h1 className='char'>{chosenChar}</h1>
+          </div>}
+          {gamma <= 34 && gamma >= -45 && ((beta > 155 || beta < -155)) && <div>
+            
+            <h1>picking words</h1>
+          </div>}
+          {/* <FormControl>
+            <FormControlLabel control={<Switch onChange={changeDifficulty} />} label={difficulty ? 'adult' : 'infant'}/>
+          </FormControl> */}
 
-        {!started && <Slider
-          defaultValue={1}
-          step={1}
-          min={1}
-          max={6}
-          marks={
-            [
-              {
-                value: 1,
-                label: 'hsk level 1'
-              },
-              {
-                value: 6,
-                label: 'hsk level 6'
+            {!started && <Slider
+              defaultValue={1}
+              step={1}
+              min={1}
+              max={6}
+              marks={
+                [
+                  {
+                    value: 1,
+                    label: 'hsk level 1'
+                  },
+                  {
+                    value: 6,
+                    label: 'hsk level 6'
+                  }
+                ]
               }
-            ]
-          }
-          onChange={changeDifficulty}
-          valueLabelDisplay='auto'
-          className='slider'
-        />}
+              onChange={changeDifficulty}
+              valueLabelDisplay='auto'
+              className='slider'
+            />}
+      </div>
+      
+      
 
         
         
