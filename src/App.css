@@ -18,10 +18,11 @@ body {
 .App {
   text-align: center;
   /* border: 1px solid black; */
-  /* background-color: burlywood; */
+  /* background-color: burlywood;t */
   position: fixed;
   width: 100%;
-  top: 40%;
+  height: 100%;
+  top: 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -80,7 +81,7 @@ body {
 }
 
 .center {
-  /* border: 1px solid black; */
+  border: 1px solid black;
   width: fit-content;
 
 }
