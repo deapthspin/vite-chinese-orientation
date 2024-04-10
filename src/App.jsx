@@ -3,6 +3,7 @@ import { Link, Routes, Route, Navigate } from 'react-router-dom'
 import Main from './components/main'
 import Rooms from './components/rooms'
 import Room from './components/room'
+import Challenge from './components/challenge'
 
 function App() {
   const [enteredName, setEnteredName] = useState(localStorage.getItem('enteredName'))
@@ -13,6 +14,7 @@ function App() {
         <Route element={<Main/>} path='/main'/>
         <Route element={<Rooms setEntered={setEnteredName} setOwner={setOwner}/>} path='/rooms'/>
         <Route element={<Room entered={enteredName} owner={owner}/>} path='/room/:uid'/>
+        <Route element={<Challenge entered={enteredName} owner={owner}/>} path='/singlechallenge'/>
         <Route element={<Navigate to='/main'/>} path='/*'/>
 
       </Routes>

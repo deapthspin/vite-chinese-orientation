@@ -154,6 +154,7 @@ function Main() {
       <div className='center'>
           {!started && <button onClick={handleClick}>enable</button>}
           {!started && <button onClick={(e) => navigate('/rooms')} >test</button>}
+          {!started && <button onClick={(e) => navigate('/singlechallenge')} >challenge solo</button>}
           <br/>
           <br/>
           {/* <h2>alpha: {Math.round(alpha)}</h2>
