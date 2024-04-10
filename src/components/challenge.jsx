@@ -93,7 +93,7 @@ function Challenge() {
 
             
             setCombo(combo + 1)
-            setScore(score + Math.floor((combo / 3) + 1))
+            setScore(score + 1)
         } else {
             setScore(score - 1)
             setCombo(0)
@@ -107,7 +107,7 @@ function Challenge() {
 
             
             setCombo(combo + 1)
-            setScore(score + Math.floor((combo / 3) + 1))
+            setScore(score + 1)
         } else {
             setScore(score - 1)
             setCombo(0)
@@ -116,8 +116,8 @@ function Challenge() {
     }
 
     return (
-        <div>
-            {!gameStarted && !gameEnded && <div>
+        <div className='App'>
+            {!gameStarted && !gameEnded && <div className='center'>
                 <button onClick={startGame}>start</button>
                 <br/>
                 <Slider
