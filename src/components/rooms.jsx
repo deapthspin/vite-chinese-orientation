@@ -111,7 +111,8 @@ function Rooms(props) {
 
     return(
         <div>
-            <h1>rooms be here</h1>
+            {/* <h1>rooms be here</h1> */}
+            <button onClick={(e) => navigate('/home')}>back to homepage</button>
             
             <button onClick={createRoom}>create a room</button>
             {canRender && <div className='rooms'>

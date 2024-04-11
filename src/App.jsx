@@ -4,6 +4,7 @@ import Main from './components/main'
 import Rooms from './components/rooms'
 import Room from './components/room'
 import Challenge from './components/challenge'
+import Homepage from './components/homepage'
 
 function App() {
   const [enteredName, setEnteredName] = useState(localStorage.getItem('enteredName'))
@@ -15,7 +16,8 @@ function App() {
         <Route element={<Rooms setEntered={setEnteredName} setOwner={setOwner}/>} path='/rooms'/>
         <Route element={<Room entered={enteredName} owner={owner}/>} path='/room/:uid'/>
         <Route element={<Challenge entered={enteredName} owner={owner}/>} path='/singlechallenge'/>
-        <Route element={<Navigate to='/main'/>} path='/*'/>
+        <Route element={<Homepage entered={enteredName} owner={owner}/>} path='/home'/>
+        <Route element={<Navigate to='/home'/>} path='/*'/>
 
       </Routes>
     </div>

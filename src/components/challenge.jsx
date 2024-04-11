@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import jsonData from './data.json'
 import { useSwipeable } from 'react-swipeable';
 import { Slider } from '@mui/material'
+import {useNavigate} from 'react-router-dom'
 function Challenge() {
     const [canRender, setCanRender] = useState(false)
     const [gameStarted, setGameStarted] = useState(false)
@@ -14,7 +15,8 @@ function Challenge() {
     const [combo, setCombo] = useState(0)
     let [timeLeft, setTimeLeft] = useState(30)
     const [randomPinyin, setRandomPinyin] = useState('')
-    
+
+    const navigate = useNavigate()
 
     const handlers = useSwipeable({
         onSwipedRight: (e) => userKnow(e),
@@ -118,6 +120,8 @@ function Challenge() {
     return (
         <div className='App'>
             {!gameStarted && !gameEnded && <div className='center'>
+          <button onClick={navigate('/home')}>back to homepage</button>
+
                 <button onClick={startGame}>start</button>
                 <br/>
                 <Slider

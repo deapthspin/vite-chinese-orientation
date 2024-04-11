@@ -148,13 +148,19 @@ function Main() {
     setDifficulty(e.target.value)
   }
 
+  useEffect(() => {
+    chooseimage()
+    window.alert('learning mode is for learning. if you are able to recognise the character shown, swipe right. if you are not able to, swipe left')
+    window.addEventListener('deviceorientation', handleOrientation);
+  }, [])
+
   return (
     <div className="App">
       <br/> 
       <div className='center'>
-          {!started && <button onClick={handleClick}>enable</button>}
-          {!started && <button onClick={(e) => navigate('/rooms')} >test</button>}
-          {!started && <button onClick={(e) => navigate('/singlechallenge')} >challenge solo</button>}
+          {/* {!started && <button onClick={handleClick}>enable</button>} */}
+          <button onClick={(e) => navigate('/home')}>back to homepage</button>
+ 
           <br/>
           <br/>
           {/* <h2>alpha: {Math.round(alpha)}</h2>
