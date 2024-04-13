@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom'
 
 
 function Main() {
-  // localStorage.setItem('stats', JSON.stringify([{char: '\u7684', correct: 0, wrong: 0}]))
+  // localStorage.setItem('stats', JSON.stringify([{char: '\u7684', pinyin: `de`, correct: 1, wrong: 0}]))
 
   const navigate = useNavigate()
 
@@ -70,7 +70,7 @@ function Main() {
         console.log(JSON.parse(localStorage.getItem('stats')))
       } else {
         // console.log()
-        localStorage.setItem('stats', JSON.stringify([...JSON.parse(localStorage.getItem('stats')), {char: `${chosenChar}`, correct: 1, wrong: 0}]))
+        localStorage.setItem('stats', JSON.stringify([...JSON.parse(localStorage.getItem('stats')), {char: `${chosenChar}`, pinyin: `${chosenCharAns}`, correct: 1, wrong: 0}]))
         console.log(JSON.parse(localStorage.getItem('stats')))
       }
       setData(data.filter(item => item.charcter !== chosenChar))
@@ -107,7 +107,7 @@ function Main() {
         console.log(JSON.parse(localStorage.getItem('stats')))
       } else {
         // console.log()
-        localStorage.setItem('stats', JSON.stringify([...JSON.parse(localStorage.getItem('stats')), {char: `${chosenChar}`, correct: 0, wrong: 1}]))
+        localStorage.setItem('stats', JSON.stringify([...JSON.parse(localStorage.getItem('stats')), {char: `${chosenChar}`, pinyin: `${chosenCharAns}`, correct: 0, wrong: 1}]))
         console.log(JSON.parse(localStorage.getItem('stats')))
       }
       chooseimage()

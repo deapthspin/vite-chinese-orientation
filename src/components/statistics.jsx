@@ -1,8 +1,9 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 function Statistics() {
     const stats = JSON.parse(localStorage.getItem('stats'))
-
+    const navigate = useNavigate()
 
     return (
         <div className='App'>
@@ -15,13 +16,16 @@ function Statistics() {
                 <div className='stats'>
                     {stats.map((item) => (
                         <div className='char-stat'>
-                            <h2>{item.char}</h2><h3>{item.correct / item.wrong > 100 ? '100' : Math.round(item.correct / item.wrong)}%</h3>
-                            {item.correct / item.wrong < 65 && <h3>
-                                {item.correct / item.wrong < 65 ? 
-                                'needs practice'
-                                : item.correct / item.wrong < 40 ?
-                                'bad. recommended'
-                                : 'practice immedietely'
+                            <h2>{item.char}</h2>
+                            <h3>{item.pinyin}</h3>
+                            <h3>{Math.round((item.correct / (item.correct + item.wrong)) * 100)}%</h3>
+                            
+                            {(item.correct / (item.correct + item.wrong)) * 100 < 65 && <h3>
+                                {(item.correct / (item.correct + item.wrong)) * 100 < 15 ? 
+                                'practice immedietely'
+                                : (item.correct / (item.correct + item.wrong)) * 100 < 40 ?
+                                'practice is reccommended'
+                                : 'needs practice'
 
                                 }
 
