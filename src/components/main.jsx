@@ -58,7 +58,7 @@ function Main() {
 
   function userKnow(e) {
     // console.log('know')
-    if (e.absX > 75 ) {
+    if (e.absX > 35 ) {
       setCompleted(true)
       // let newData = 
       // console.log(newData, data)
@@ -97,7 +97,7 @@ function Main() {
 
   function userNotKnow(e) {
     // console.log('not know')
-    if (e.absX > 75 ) {
+    if (e.absX > 35 ) {
       setCompleted(true)
       if (JSON.parse(localStorage.getItem('stats')).map((item) => item.char).includes(`${chosenChar}`)) {
         let temp = JSON.parse(localStorage.getItem('stats'))
