@@ -59,7 +59,7 @@ function Main() {
   function userKnow(e) {
     // console.log('know')
     if (e.absX > 35 ) {
-      setCompleted(true)
+      // setCompleted(true)
       // let newData = 
       // console.log(newData, data)
       if (JSON.parse(localStorage.getItem('stats')).map((item) => item.char).includes(`${chosenChar}`)) {
@@ -98,7 +98,7 @@ function Main() {
   function userNotKnow(e) {
     // console.log('not know')
     if (e.absX > 35 ) {
-      setCompleted(true)
+
       if (JSON.parse(localStorage.getItem('stats')).map((item) => item.char).includes(`${chosenChar}`)) {
         let temp = JSON.parse(localStorage.getItem('stats'))
         temp.filter((item) => item.char === chosenChar)[0].wrong += 1
@@ -192,12 +192,15 @@ function Main() {
           <h2>gamma: {Math.round(gamma)}</h2> */}
           {/* {} */}
           {/* <div className='swipeable' {...handlers} style={style}></div> */}
+          {/* <h1>{completed.toString()}</h1> */}
           {beta <= 55 && <div>
+            
             {!completed && <div className='swipeable' {...handlers} style={style}>
               <h1 className='pinyin'>{chosenCharAns}</h1>
               <br/>
               <h2>{chosenCharDef}</h2>
             </div>}
+           
             {completed && <h1>tilt phone up to view next word</h1>}
 
           </div>}
