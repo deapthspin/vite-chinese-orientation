@@ -9,6 +9,8 @@ import { useNavigate } from 'react-router-dom'
 
 
 function Main() {
+  // localStorage.setItem('stats', JSON.stringify([{char: '\u7684', correct: 0, wrong: 0}]))
+
   const navigate = useNavigate()
 
   const [alpha, setAlpha] = useState(0)
@@ -60,6 +62,17 @@ function Main() {
       setCompleted(true)
       // let newData = 
       // console.log(newData, data)
+      if (JSON.parse(localStorage.getItem('stats')).map((item) => item.char).includes(`${chosenChar}`)) {
+        let temp = JSON.parse(localStorage.getItem('stats'))
+        temp.filter((item) => item.char === chosenChar)[0].correct += 1
+        
+        localStorage.setItem('stats', JSON.stringify(temp))
+        console.log(JSON.parse(localStorage.getItem('stats')))
+      } else {
+        // console.log()
+        localStorage.setItem('stats', JSON.stringify([...JSON.parse(localStorage.getItem('stats')), {char: `${chosenChar}`, correct: 1, wrong: 0}]))
+        console.log(JSON.parse(localStorage.getItem('stats')))
+      }
       setData(data.filter(item => item.charcter !== chosenChar))
       chooseimage()
     }
@@ -86,6 +99,17 @@ function Main() {
     // console.log('not know')
     if (e.absX > 75 ) {
       setCompleted(true)
+      if (JSON.parse(localStorage.getItem('stats')).map((item) => item.char).includes(`${chosenChar}`)) {
+        let temp = JSON.parse(localStorage.getItem('stats'))
+        temp.filter((item) => item.char === chosenChar)[0].wrong += 1
+        
+        localStorage.setItem('stats', JSON.stringify(temp))
+        console.log(JSON.parse(localStorage.getItem('stats')))
+      } else {
+        // console.log()
+        localStorage.setItem('stats', JSON.stringify([...JSON.parse(localStorage.getItem('stats')), {char: `${chosenChar}`, correct: 0, wrong: 1}]))
+        console.log(JSON.parse(localStorage.getItem('stats')))
+      }
       chooseimage()
     }
     setStyle({
@@ -131,15 +155,15 @@ function Main() {
     setGamma(Math.round(g))
   }
   useEffect(() => {
-    if(gamma <= 45 && gamma >= -45 && (beta > 170 || beta < -170)) {
+    // if(gamma <= 45 && gamma >= -45 && (beta > 170 || beta < -170)) {
 
 
-      chooseimage()
-    }
+    //   chooseimage()
+    // }
     // if(beta < 3 && beta >= -1 && gamma <= 20 && gamma >= -20) {
     //   showans()
     // }
-    if(((beta <= 35 && beta >= -35) || (beta >= 160 || beta <= -160)) && ((gamma <= -35 && gamma >= -90) || (gamma <= 90 && gamma >= 35))) {
+    if(((alpha <= 35 && alpha >= 325) || (alpha >= 145 && alpha <= 215)) && ((beta >= 45 && beta <= 125))) {
       setCompleted(false)
     }
   }, [beta, gamma])
@@ -168,7 +192,7 @@ function Main() {
           <h2>gamma: {Math.round(gamma)}</h2> */}
           {/* {} */}
           {/* <div className='swipeable' {...handlers} style={style}></div> */}
-          {beta < 15 && beta >= -15 && gamma <= 34 && gamma >= -34 && <div>
+          {beta <= 55 && <div>
             {!completed && <div className='swipeable' {...handlers} style={style}>
               <h1 className='pinyin'>{chosenCharAns}</h1>
               <br/>
@@ -178,17 +202,17 @@ function Main() {
 
           </div>}
           {/* {beta < 95 && beta > 80 && <h1>upright</h1>} */}
-          {((beta <= 35 && beta >= -35) || (beta >= 160 || beta <= -160)) && ((gamma <= -35 && gamma >= -90) || (gamma <= 90 && gamma >= 35)) && <div
+          {((beta > 55 && beta <= 125)) && <div
           {...handlers} style={style}
           >
             <div className='char center'>
               <h1>{chosenChar}</h1>
             </div>
           </div>}
-          {gamma <= 34 && gamma >= -45 && ((beta > 155 || beta < -155)) && <div>
+          {/* {gamma <= 34 && gamma >= -45 && ((beta > 155 || beta < -155)) && <div>
             
             <h1>picking words</h1>
-          </div>}
+          </div>} */}
           {/* <FormControl>
             <FormControlLabel control={<Switch onChange={changeDifficulty} />} label={difficulty ? 'adult' : 'infant'}/>
           </FormControl> */}

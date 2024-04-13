@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-function Homepage() {
+function Homepage(props) {
     const navigate = useNavigate()
     const [alpha, setAlpha] = useState(0)
     const [beta, setBeta] = useState(0)
     const [gamma, setGamma] = useState(0)
-    const [perms, setPerms] = useState(false)
+    const {perms, setPerms} = props
 
     
 
@@ -53,6 +53,9 @@ function Homepage() {
               <button onClick={(e) => navigate('/main')} >learn</button>
               <button onClick={(e) => navigate('/singlechallenge')} >solo</button>
               <button onClick={(e) => navigate('/rooms')} >group</button>
+              <br/>
+              <br/>
+              <button onClick={(e) => navigate('/stats')} >your statistics</button>
             </div>}
             
 

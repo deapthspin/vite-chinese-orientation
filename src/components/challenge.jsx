@@ -3,8 +3,11 @@ import jsonData from './data.json'
 import { useSwipeable } from 'react-swipeable';
 import { Slider } from '@mui/material'
 import {useNavigate} from 'react-router-dom'
+
+
+
 function Challenge() {
-    const [canRender, setCanRender] = useState(false)
+    // const [canRender, setCanRender] = useState(false)
     const [gameStarted, setGameStarted] = useState(false)
     const [gameEnded, setGameEnded] = useState(false)
     const [words, setWords] = useState([])
@@ -24,6 +27,7 @@ function Challenge() {
         onSwiping: (e) => changeColour(e),
         
       });
+    
 
     useEffect(() => {
         let intid
@@ -85,8 +89,18 @@ function Challenge() {
       }
 
       useEffect(() => {
-        setRandomPinyin(fullData[Math.floor(Math.random() * fullData.length)].pinyin)
+        if(qnsDone) {
+            setRandomPinyin(fullData[Math.floor(Math.random() * fullData.length)].pinyin)
+
+        }
+        
+        
       }, [qnsDone])
+
+      useEffect(() => {
+        setRandomPinyin(fullData[Math.floor(Math.random() * fullData.length)].pinyin)
+
+      }, [])
 
 
       function userKnow(e) {
@@ -120,7 +134,7 @@ function Challenge() {
     return (
         <div className='App'>
             {!gameStarted && !gameEnded && <div className='center'>
-          <button onClick={navigate('/home')}>back to homepage</button>
+          <button onClick={(e) => navigate('/home')}>back to homepage</button>
 
                 <button onClick={startGame}>start</button>
                 <br/>

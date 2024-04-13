@@ -94,3 +94,19 @@ body {
   width: fit-content;
 
 }
+
+.stats {
+  overflow-y: scroll;
+  height: 500px;
+  width: 750px;
+  background-color: rgb(236, 236, 236);
+  border: 15px solid rgb(211, 211, 211);
+  border-radius: 3%;
+}
+
+.char-stat {
+  width: 650px;
+  border: 7px solid rgb(211, 211, 211);
+  border-radius: 4px;
+  margin: 3px 10px;
+}
