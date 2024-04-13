@@ -20,6 +20,7 @@ function Main() {
   const [chosenCharAns, setChosenCharAns] = useState('')
   const [chosenCharDef, setChosenCharDef] = useState('')
   const [difficulty, setDifficulty] = useState(1)
+  const [test, setTest] = useState(1)
   const [completed, setCompleted] = useState(false)
   const [started, setStarted] = useState(false)
   const[style, setStyle]= useState({
@@ -60,6 +61,7 @@ function Main() {
     // console.log('know')
     if (e.absX > 35 ) {
       // setCompleted(true)
+      setTest(e.absX)
       // let newData = 
       // console.log(newData, data)
       if (JSON.parse(localStorage.getItem('stats')).map((item) => item.char).includes(`${chosenChar}`)) {
@@ -193,6 +195,7 @@ function Main() {
           {/* {} */}
           {/* <div className='swipeable' {...handlers} style={style}></div> */}
           {/* <h1>{completed.toString()}</h1> */}
+          <h1>{test}</h1>
           {beta <= 55 && <div>
             
             {!completed && <div className='swipeable' {...handlers} style={style}>
