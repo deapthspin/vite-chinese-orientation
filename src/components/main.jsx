@@ -10,7 +10,7 @@ import { useNavigate } from 'react-router-dom'
 
 function Main() {
   // localStorage.setItem('stats', JSON.stringify([{char: '\u7684', pinyin: `de`, correct: 1, wrong: 0}]))
-
+  
   const navigate = useNavigate()
 
   const [alpha, setAlpha] = useState(0)

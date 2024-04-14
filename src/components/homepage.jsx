@@ -39,6 +39,12 @@ function Homepage(props) {
         setBeta(Math.round(b))
         setGamma(Math.round(g))
       }
+
+      useEffect(() => {
+        if(!localStorage.getItem('stats')) {
+          localStorage.setItem('stats', JSON.stringify([{char: '\u7684', pinyin: `de`, correct: 1, wrong: 0}]))
+        }
+      }, [])
     return(
         <div className='App'>
           <div>
