@@ -75,7 +75,7 @@ function Main() {
     console.log('asdfsd')
     if (e.absX > 35 ) {
       // setCompleted(true)
-      setTest(e.absX)
+
       console.log('222')
       // let newData = 
       console.log(localStorage.getItem('stats'))
@@ -210,7 +210,7 @@ function Main() {
           {/* {} */}
           {/* <div className='swipeable' {...handlers} style={style}></div> */}
           {/* <h1>{completed.toString()}</h1> */}
-          <h1>{test}</h1>
+          {/* <h1>{test}</h1> */}
           {beta <= 55 && <div>
             
             {!completed && <div className='swipeable' {...handlers} style={style}>
