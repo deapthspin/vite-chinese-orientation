@@ -72,7 +72,10 @@ function Main() {
   });
 
   function userKnow(e) {
-    // console.log('know')
+    JSON.stringify({
+      msgType: 'log',
+      msg: 'should work'
+    })
     if (e.absX > 35 ) {
       // setCompleted(true)
       setTest(e.absX)
