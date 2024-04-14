@@ -72,10 +72,7 @@ function Main() {
   });
 
   function userKnow(e) {
-    JSON.stringify({
-      msgType: 'log',
-      msg: 'should work'
-    })
+    console.log('asdfsd')
     if (e.absX > 35 ) {
       // setCompleted(true)
       setTest(e.absX)
