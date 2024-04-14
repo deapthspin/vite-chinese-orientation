@@ -78,7 +78,7 @@ function Main() {
       setTest(e.absX)
       console.log('222')
       // let newData = 
-      // console.log(newData, data)
+      console.log(localStorage.getItem('stats'))
       if (JSON.parse(localStorage.getItem('stats')).map((item) => item.char).includes(`${chosenChar}`)) {
         let temp = JSON.parse(localStorage.getItem('stats'))
         temp.filter((item) => item.char === chosenChar)[0].correct += 1
