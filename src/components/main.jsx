@@ -138,7 +138,7 @@ function Main() {
   function chooseimage() {
     
     // console.log(data)
-    
+    console.log('choosing image')
     
     
       
