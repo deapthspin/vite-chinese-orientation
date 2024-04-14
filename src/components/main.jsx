@@ -1,5 +1,5 @@
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import '../App.css';
 
 import jsonData from './data.json'
@@ -27,6 +27,20 @@ function Main() {
     backgroundColor: `rgb(255,255,255)`
   })
   const [data,setData] = useState(jsonData)
+
+  const ws = useRef()
+
+  useEffect(() => {
+    ws.current = new WebSocket('ws://localhost:4200')
+    
+    ws.current.onmessage = (event) => {
+      const data = JSON.parse(event.data)
+
+      if(data.msgType === 'log') {
+        console.log(data.msg)
+      }
+    }
+  }, [])
 
   const handleClick = () => {
     if (typeof DeviceMotionEvent.requestPermission === 'function') {
@@ -62,6 +76,12 @@ function Main() {
     if (e.absX > 35 ) {
       // setCompleted(true)
       setTest(e.absX)
+      ws.current.send(
+        JSON.stringify({
+          msgType: 'log',
+          msg: 'should work'
+        })
+      )
       // let newData = 
       // console.log(newData, data)
       if (JSON.parse(localStorage.getItem('stats')).map((item) => item.char).includes(`${chosenChar}`)) {

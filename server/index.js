@@ -85,6 +85,16 @@ server.on('connection', (ws) => {
             } catch(err) {
                 console.error(err)
             }
+        } else if(data.msgType === 'log') {
+            try {
+                console.log(`room-${data.roomId} one player completed`)
+                sendPlayerDone({
+                    msgType: data.msgType,
+                    msg: data.msg
+                })
+            } catch(err) {
+                console.error(err)
+            }
         }
     })
 })
