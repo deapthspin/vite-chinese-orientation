@@ -76,12 +76,7 @@ function Main() {
     if (e.absX > 35 ) {
       // setCompleted(true)
       setTest(e.absX)
-      ws.current.send(
-        JSON.stringify({
-          msgType: 'log',
-          msg: 'should work'
-        })
-      )
+      console.log('222')
       // let newData = 
       // console.log(newData, data)
       if (JSON.parse(localStorage.getItem('stats')).map((item) => item.char).includes(`${chosenChar}`)) {
